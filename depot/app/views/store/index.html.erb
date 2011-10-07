@@ -1,0 +1,17 @@
+<!-- This is the view template and produces an HTML result - % signify ruby code in a view %= output of ruby code to view. Use of sanitize allows adding HTML stylings but opens up potential security hole -->
+<% if notice %>
+<p id="notice"><%= notice %></p> 
+<% end %>
+ 
+<h1>Your Pragmatic Catalog</h1> 
+ 
+<% @products.each do |product| %>
+  <div class="entry"> 
+    <%= image_tag(product.image_url) %>
+    <h3><%= product.title %></h3> 
+    <%= sanitize(product.description) %>
+    <div class="price_line"> 
+      <span class="price"><%= number_to_currency(product.price) %></span> 
+    </div> 
+  </div> 
+<% end %>
