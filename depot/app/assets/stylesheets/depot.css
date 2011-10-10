@@ -159,5 +159,8 @@
   font-weight: bold;
   margin-right: 2em;
 }
-
+/* MA added to display the Add to cart button, on line 15 of index.html.erb, inline with the price instead of block level */
+#store .entry form, #store .entry form div {
+display: inline;
+}
 

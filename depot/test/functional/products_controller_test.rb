@@ -1,3 +1,4 @@
+#You can write further tests here to test the products in the store - I added a test for each product div has 3 actions
 require 'test_helper'
 
 class ProductsControllerTest < ActionController::TestCase
@@ -56,5 +57,10 @@ class ProductsControllerTest < ActionController::TestCase
 
     assert_redirected_to products_path
   end
+  
+  #test "should show actions" do
+   #   assert_select '#product_list'
+    #  assert_select '.list_actions a', :minimum => 3
+  #end
 end
 

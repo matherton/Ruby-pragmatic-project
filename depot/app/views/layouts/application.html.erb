@@ -3,7 +3,7 @@
 <html> 
 <head> 
   <title>Pragprog Books Online Store</title> 
-<!-- START:stylesheet --> 
+<!-- START:stylesheet - Rails helper method to generate a <link> tag --> 
   <%= stylesheet_link_tag "scaffold" %>
   <%= stylesheet_link_tag "depot", :media => "all" %><!-- <label id="code.slt"/> --> 
 <!-- END:stylesheet --> 
@@ -11,7 +11,8 @@
   <%= csrf_meta_tag %><!-- <label id="code.csrf"/> --> 
 </head> 
 <body id="store"> 
-  <div id="banner"> 
+  <div id="banner">
+    <!-- image tag helper --> 
     <%= image_tag("logo.png") %>
     <%= @page_title || "Pragmatic Bookshelf" %><!-- <label id="code.depot.e.title"/> --> 
   </div> 
