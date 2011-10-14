@@ -163,4 +163,31 @@
 #store .entry form, #store .entry form div {
 display: inline;
 }
+/* MA added to remove border in book images links in app/store/index.html.erb */
+.link_image {
+	border: 0;
+}
 
+/* Styles for the cart in the main page */
+#store .cart_title { font: 120% bold;
+}
+#store .item_price, #store .total_line { text-align: right;
+}
+#store .total_line .total_cell { font-weight: bold; border-top: 1px solid #595;
+}
+
+/* Styles for the cart in the sidebar */
+#cart, #cart table, .cart_title
+	{ font-size: small;
+		 color:	white;
+}
+/* MA added css as could not get AJAX yellow fade technique to work changed above to be more specific so would inheriot these sytyles */
+#side, #cart, #current_item
+	{ font-size: medium;
+		 color:	yellow;
+}
+
+#cart table { border-top:	1px dotted #595; 
+			border-bottom: 1px dotted #595; 
+			margin-bottom: 10px;
+}

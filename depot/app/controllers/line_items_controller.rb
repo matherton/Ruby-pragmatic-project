@@ -42,11 +42,15 @@ class LineItemsController < ApplicationController
   def create
     @cart = current_cart
     product = Product.find(params[:product_id])
-    @line_item = @cart.line_items.build(:product => product)
+    @line_item = @cart.add_product(product.id)
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to(@line_item.cart, :notice => 'Line item was successfully created.') }
+        # MA changed redirect_to(@line_item.cart) to redirect_to(@store_url) so changes to the cart render in the index as oppose to a cart page
+        format.html { redirect_to(store_url) }
+        # The followng tells the respond_to method to return in  a format of .js - this is for our AJAX cart in the sidebar - page 146
+        # code { @current_item = @line_item } assigns an instance variable to the current line item so it can be passed to the template - page 148  
+        format.js { @current_item = @line_item }
         format.json { render json: @line_item, status: :created, location: @line_item }
       else
         format.html { render action: "new" }
@@ -69,6 +73,11 @@ class LineItemsController < ApplicationController
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
       end
     end
+  end
+  
+  # MA reset the counter to zero when user adds something to the cart.
+  def add_to_cart
+    session[:counter] = 0
   end
 
   # DELETE /line_items/1
