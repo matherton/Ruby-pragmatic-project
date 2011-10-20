@@ -80,15 +80,29 @@ class LineItemsController < ApplicationController
     session[:counter] = 0
   end
 
+
   # DELETE /line_items/1
   # DELETE /line_items/1.json
   def destroy
+    # Chris added the instance variable @cart to the destroy instance method so that we can use the destroy method with @cart
+    @cart = current_cart
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
 
     respond_to do |format|
       format.html { redirect_to line_items_url }
       format.json { head :ok }
+      format.js { }
+    end
+  end
+  # 2. add to controller the drecrement method and functions
+  def decrement
+    @cart = current_cart
+    @line_item = LineItem.find(params[:id])
+    if @line_item.quantity > 1
+      @line_item.update_attribute(:quantity, @line_item.quantity - 1)
+    else
+      @line_item.destroy
     end
   end
 end

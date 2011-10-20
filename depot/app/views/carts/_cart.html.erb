@@ -6,13 +6,13 @@ that cause the partial to be rendered -->
 <table>
   <!-- MA - this is a partial to place the cart in the sidebar -->
   <%= render(cart.line_items) %>
-  
   <tr class="total_line"> 
     <td colspan="2">Total</td> 
     <td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
   </tr> 
 </table>
-
-<!-- Adds a empty button to the shopping cart -->
+<!-- Adds a checkout button to the cart with a new_order_path using the method get so that it gets all the current items -->
+<%= button_to 'Checkout', new_order_path, :method => :get %>
+<!-- Adds a empty cart button to the shopping cart so you completely empty the cart-->
 <%= button_to 'Empty cart', cart, :method => :delete, :confirm => 'Are you sure?' %>
 <% end %>

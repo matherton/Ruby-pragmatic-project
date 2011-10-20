@@ -7,4 +7,8 @@
   <td><%= line_item.quantity %>&times;</td>
   <td><%= line_item.product.title %></td>
   <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+  <!-- 17-10-11 Here is the link to delete an item from the cart -->
+  <!-- 18-10-11 Need to alter this so just deletes 1 item if duplicate items are in the cart -->
+  <!-- 3. last ad to view -->
+  <td><%= link_to 'x', decrement_line_item_path(line_item), :remote => true %></td>
 </tr>

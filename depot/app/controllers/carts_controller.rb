@@ -73,6 +73,18 @@ class CartsController < ApplicationController
       end
     end
   end
+  
+  # 17-10-11 MA start remove from cart - if line item quantity is null destroy the line item from the cart 
+  if @line_item_quantity == 0
+    @line_item.destroy
+  end
+  
+  begin @line_item.update_attributes(params[:line_item])
+  rescue
+  end
+  respond_to do |format|
+    format.js {@current_item = @line_item}
+  end
 
   # DELETE /carts/1
   # DELETE /carts/1.json

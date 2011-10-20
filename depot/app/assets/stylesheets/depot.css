@@ -181,6 +181,7 @@ display: inline;
 	{ font-size: small;
 		 color:	white;
 }
+
 /* MA added css as could not get AJAX yellow fade technique to work changed above to be more specific so would inheriot these sytyles */
 #side, #cart, #current_item
 	{ font-size: medium;
@@ -190,4 +191,37 @@ display: inline;
 #cart table { border-top:	1px dotted #595; 
 			border-bottom: 1px dotted #595; 
 			margin-bottom: 10px;
+}
+
+/* styles for order form */
+.depot_form fieldset {
+	background: #efe;
+}
+
+.depot_form legend {
+	color: #dfd;
+	background: #141;
+	font-family: sans-serif;
+	padding: 0.2em 1em;
+}
+
+.depot_form label {
+	width: 5em;
+	float: left;
+	text-align: right;
+	padding-top: 1.2em;
+	margin-right: 0.1em;
+	display: block;
+}
+
+.depot_form select, .depot_form textarea, .depot_form input {
+	margin-left: 0.5em;
+}
+
+.depot_form submit {
+	margin-left: 4em;
+}
+
+.depot_form div {
+	margin: 0.5em 0;
 }

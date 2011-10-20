@@ -80,4 +80,14 @@ class ProductsController < ApplicationController
       format.json { head :ok }
     end
   end
-end
+  
+  # Atom feed to alert ordering department when item has been successfully purchased - page 172
+  def who_bought
+    @product = Product.find(params[:id])
+    respond_to do |format|
+      format.atom
+      format.json { render json: @product }
+    end
+  end
+  
+end # Closes ProductController class

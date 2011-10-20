@@ -18,7 +18,7 @@
   </div> 
   <div id="columns"> 
     <div id="side"> 
-      <!-- this displays the partial so the cart is displayed in the sidebar - Chris put unless @cart.nil? so that no errors occur when @cart.nil is passed to the div as it is not defined - unless is same as if not -->
+      <!-- this displays the partial so the cart is displayed in the sidebar - Chris put unless @cart.nil? so that no errors occur when @cart.nil is passed to the div as it is not defined - 'unless' is same as 'if not' -->
       <div id="cart"> 
         <%= render @cart unless @cart.nil? %>
       </div>

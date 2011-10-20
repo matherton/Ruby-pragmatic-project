@@ -1,11 +1,19 @@
 Depot::Application.routes.draw do
-  resources :carts
+  resources :orders
 
-  resources :line_items
+  resources :carts
+# 1. Allow application to receive a get of decrement
+  resources :line_items do
+    member do
+      get 'decrement'
+    end
+  end
 
   get "store/index"
-
-  resources :products
+  # define a route for who_bought.atom.builder - page 175
+  resources :products do
+    get :who_bought, :on => :member
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
