@@ -12,7 +12,12 @@ that cause the partial to be rendered -->
   </tr> 
 </table>
 <!-- Adds a checkout button to the cart with a new_order_path using the method get so that it gets all the current items -->
-<%= button_to 'Checkout', new_order_path, :method => :get %>
+<!-- MA disable the checkout button when on checkout page NOTE got the value from rake routes in terminal (Chris shorthand version: <%=# button_to 'Checkout', new_order_path, { :method => :get, :disabled => params[:controller] == 'orders' && params[:action] == 'new' ? true : false } %>)-->
+<% if params[:controller] == 'orders' && params[:action] == 'new'%>        
+  <%= button_to 'Checkout', new_order_path, :disabled => true %>
+<% else %>
+  <%= button_to 'Checkout', new_order_path, :method => :get %>
+<% end %>
 <!-- Adds a empty cart button to the shopping cart so you completely empty the cart-->
 <%= button_to 'Empty cart', cart, :method => :delete, :confirm => 'Are you sure?' %>
 <% end %>

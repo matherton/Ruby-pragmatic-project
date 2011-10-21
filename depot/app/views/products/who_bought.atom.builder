@@ -1,3 +1,4 @@
+# By adding format.atom in products_controller.rb it forces RAILS to look for this this template 
 atom_feed do |feed|
   feed.title "Who bought #{@product.title}"
 

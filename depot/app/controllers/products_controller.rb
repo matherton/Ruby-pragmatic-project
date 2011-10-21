@@ -82,10 +82,11 @@ class ProductsController < ApplicationController
   end
   
   # Atom feed to alert ordering department when item has been successfully purchased - page 172
+  # MA removed 'format.atom' on line 89 to get JSON-formatted view of who_bought who request - Playtime 180
   def who_bought
     @product = Product.find(params[:id])
     respond_to do |format|
-      format.atom
+      format.json { render :json => @product.to_json(:include => :orders) }
       format.json { render json: @product }
     end
   end

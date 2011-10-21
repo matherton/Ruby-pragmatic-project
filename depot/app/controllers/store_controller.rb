@@ -8,5 +8,4 @@ class StoreController < ApplicationController
 # MA added to invoke the cart in the sidebar
     @cart = current_cart
   end
-
 end
